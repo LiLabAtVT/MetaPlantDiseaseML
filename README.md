@@ -8,7 +8,7 @@ Surveillance for early disease detection is crucial to reduce the threat of plan
 
 # Dependencies and Requirements
 
-This Project is developed in Python with Modules and external tooks.
+This Project is developed in Python with Modules and external tools.
 
 Before running this pipeline, a dependency check should be performed first to make sure every dependency is correctly installed.
 
