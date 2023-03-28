@@ -46,7 +46,7 @@ Seqkit (v2.0.0)\
 
 ## Commands to Run the Models:
 
-#### Step 1: Feature Matrix Generation
+#### Step 1.0: Feature Matrix Generation
 
 Command: python 10_feature_mat_gen.py fasta_file_sequences prefix_output_name\
 Description: This script is to generate a k-mer frequency matrix from DNA sequences stored in fasta file format, adapted from [DeepTE](https://github.com/LiLabAtVT/DeepTE). Here, the input file is a fasta file in two blocks: >header and sequences with no new line. Two output files are generated, one with k-mer frequencies and the other with labels encoded by 0 (healthy) and 1 (infected)
@@ -61,11 +61,18 @@ Description: This script is to train and compare seven machine learning models (
 Command: python 21_pipeline_CNN_cv_041722.py kmer_mat.csv label.csv > accuracies.csv\
 Description: This script is to train a Convolutional Neural Network using a 10-fold cross validation with a k-mer frequency matrix. The input files for this script "kmer_mat.csv", which is the csv file containing k-mer frequency matrix and "label.csv", which is the csv file containing the labels in 0,1 form are both outputs of Step 1.0
 
-#### Step 3: TODO
+#### Step 3.0: Generating Figures
 
-#### Step 4: TODO
+The Jupyter Notebook titled "30_RF_CV_simulated_mg.ipynb" is used to generate Figure 3 of the Report. This is an independent Python Notebook file which takes the feature matrix of the simulated metagenomics as the input file. The Notebook titled "40_important_kmers_RF_XGB_SVM.ipynb" is used to generate Figure 4 of the Report. The input for this Notebook is the original feature matrix containing the 10,000 sequences to extract the important features.
 
-#### Step 5: TODO
+
+#### Util Files - Description:
+
+"One_hot_rep_kmer.py" splits the input sequences in 7-mers with a sliding window of 1 and then creates the k-mer feature matrix, updating the number of times a k-mer is present in a sequence every time it sees a k-mers. 
+
+"seq_reader_kmer.py" reads in the sequences in Fasta format (the header of each sequence starts with a '>' and then a new line separates the header from the actual sequence) in the input file and splits the sequences from the header/label 
+
+"classify_CNN_mg_cv_041622.py" uses the labels and the feature matrices to train the models.
 
 
 
